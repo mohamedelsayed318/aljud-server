@@ -17,6 +17,7 @@ import { GraphiqlPlugin } from "@vendure/graphiql-plugin";
 import "dotenv/config";
 import path from "path";
 import { compileUiExtensions, setBranding } from "@vendure/ui-devkit/compiler";
+import { GreeterPlugin } from "./plugins/greeter/plugin";
 
 const IS_DEV = process.env.APP_ENV === "dev";
 const serverPort = +process.env.PORT || 3000;
@@ -132,6 +133,7 @@ export const config: VendureConfig = {
       app: compileUiExtensions({
         outputPath: path.join(__dirname, "../admin-ui"),
         extensions: [
+          GreeterPlugin.ui,
           setBranding({
             largeLogoPath: path.join(__dirname, "../images/logo.png"),
             smallLogoPath: path.join(__dirname, "../images/logo.png"),

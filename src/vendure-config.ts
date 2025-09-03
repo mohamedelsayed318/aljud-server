@@ -96,51 +96,20 @@ export const config: VendureConfig = {
           "http://localhost:8080/verify-email-address-change",
       },
     }),
-    // AdminUiPlugin.init({
-    //   // app: compileUiExtensions({
-    //   //   outputPath: path.join(__dirname, "../admin-ui/dist/browser"),
-    //   //   extensions: [
-    //   //     // setBranding({
-    //   //     //   largeLogoPath: path.join(__dirname, "../images/logo.png"),
-    //   //     //   smallLogoPath: path.join(__dirname, "../images/logo.png"),
-    //   //     //   faviconPath: path.join(__dirname, "../images/logo.png"),
-    //   //     // }),
-    //   //   ],
-    //   // }),
-    //   route: "admin",
-    //   port: serverPort + 2,
-    //   adminUiConfig: {
-    //     apiPort: serverPort,
-    //     brand: "الچود",
-    //     defaultLanguage: LanguageCode.ar,
-    //     hideVendureBranding: true,
-    //     hideVersion: true,
-    //   },
-    // }),
-
     AdminUiPlugin.init({
       route: "admin",
       port: serverPort + 2,
       adminUiConfig: {
         availableLanguages: [LanguageCode.ar, LanguageCode.en],
         defaultLanguage: LanguageCode.ar,
-        availableLocales: ["SA", "US"],
-        defaultLocale: "SA",
+        availableLocales: ["EG", "US"],
+        defaultLocale: "EG",
         brand: "الچود",
         hideVendureBranding: true,
         hideVersion: true,
+        loginImageUrl: "https://i.ibb.co/LzQ6MHLZ/logo-01.jpg",
       },
-      app: compileUiExtensions({
-        outputPath: path.join(__dirname, "../admin-ui"),
-        extensions: [
-          GreeterPlugin.ui,
-          setBranding({
-            largeLogoPath: path.join(__dirname, "../images/logo.png"),
-            smallLogoPath: path.join(__dirname, "../images/logo.png"),
-            faviconPath: path.join(__dirname, "../images/logo.png"),
-          }),
-        ],
-      }),
+      app: { path: path.join(__dirname, "../admin-ui/dist/browser") },
     }),
   ],
 };

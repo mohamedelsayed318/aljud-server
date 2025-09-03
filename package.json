@@ -5,11 +5,12 @@
   "scripts": {
     "dev:server": "ts-node ./src/index.ts",
     "dev:worker": "ts-node ./src/index-worker.ts",
-    "dev": "concurrently npm:dev:*",
+    "dev": "npm run compile-admin-ui && concurrently npm:dev:*",
     "build": "tsc",
     "start:server": "node ./dist/index.js",
     "start:worker": "node ./dist/index-worker.js",
-    "start": "concurrently npm:start:*"
+    "start": "concurrently npm:start:*",
+    "compile-admin-ui": "ts-node ./src/compile-admin-ui.ts"
   },
   "dependencies": {
     "@vendure/admin-ui-plugin": "3.4.0",
